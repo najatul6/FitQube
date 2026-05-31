@@ -119,15 +119,15 @@ const Navbar = () => {
         {/* Mobile Social Icons */}
         <div className="flex items-center space-x-6 pl-4 pb-4 text-neutral-400">
           {socialLinks.map((social, index) => (
-            <a 
+            <Link 
               key={index} 
-              href={social.href} 
+              to={social.href} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-neutral-950 transition-colors duration-200"
             >
               {social.icon}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
