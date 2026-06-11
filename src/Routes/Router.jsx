@@ -1,12 +1,12 @@
-import DashboardLayout from "@/Layout/DashboardLayout/DashboardLayout";
 import MainLayout from "@/Layout/MainLayout/MainLayout";
-import Signin from "@/Pages/Authentication/Signin";
-import Signup from "@/Pages/Authentication/Signup";
 import ErrorPage from "@/Pages/Common/ErrorPage";
-import Overview from "@/Pages/Dashboard/Overview";
 import Home from "@/Pages/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "@/Layout/DashboardLayout/DashboardLayout";
+import Signin from "@/Pages/Authentication/Signin";
+import Signup from "@/Pages/Authentication/Signup";
 import PrivateRoute from "./PrivateRoute";
+import Overview from "@/Pages/Dashboard/Overview";
 
 const Router = createBrowserRouter([
     {
