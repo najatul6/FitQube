@@ -28,7 +28,6 @@ const slidesData = [
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto slide effect (Every 5 seconds)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slidesData.length);
@@ -36,7 +35,6 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Different animation variants based on slide settings
   const getAnimationVariants = (effect) => {
     switch (effect) {
       case "scaleUp":
@@ -51,7 +49,7 @@ const HeroSection = () => {
           animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } },
           exit: { y: "-100%", opacity: 0, transition: { duration: 0.5 } },
         };
-      default: // slideLeft
+      default:
         return {
           initial: { x: "100%", opacity: 0 },
           animate: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } },
@@ -63,8 +61,8 @@ const HeroSection = () => {
   const currentSlideData = slidesData[currentSlide];
 
   return (
-    <div className="relative w-full h-[85vh] md:h-screen overflow-hidden bg-black flex items-center justify-center">
-      {/* Dynamic Background Image Slider */}
+    <div className="relative w-full h-[85vh] md:h-screen overflow-hidden bg-zinc-950 flex items-center justify-center">
+      {/* Dynamic Background Image Slider with Grayscale filter */}
       <div className="absolute inset-0 w-full h-full z-0">
         <AnimatePresence mode="wait">
           <motion.div
@@ -73,15 +71,17 @@ const HeroSection = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            // brightness and grayscale keeps everything strictly black & white
+            className="absolute inset-0 w-full h-full bg-cover bg-center grayscale contrast-125 brightness-50"
             style={{ backgroundImage: `url('${currentSlideData.bgImage}')` }}
           />
         </AnimatePresence>
-        {/* Dark Overlay for Text Visibility */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/50 to-black/80" />
+        
+        {/* Strong Dark Overlay for high typography contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950" />
       </div>
 
-      {/* Content Layer (Title & Subtitle) */}
+      {/* Content Layer */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto select-none">
         <AnimatePresence mode="wait">
           <motion.div
@@ -92,27 +92,27 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            {/* Tagline */}
-            <span className="text-amber-500 font-bold uppercase tracking-widest text-sm md:text-base border-b-2 border-amber-500 pb-1">
+            {/* Tagline: Changed to white with tracking for sleek high-end look */}
+            <span className="text-white text-xs md:text-sm font-black uppercase tracking-[0.3em] border-b border-white/40 pb-2 inline-block">
               Premium Fitness Club
             </span>
 
-            {/* Title */}
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-none max-w-3xl mx-auto drop-shadow-md">
+            {/* Title: Pure solid White */}
+            <h1 className="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-none max-w-3xl mx-auto">
               {currentSlideData.title}
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-gray-300 text-base md:text-lg max-w-xl mx-auto">
+            {/* Subtitle: Soft white/gray to maintain typography hierarchy */}
+            <p className="text-zinc-400 text-base md:text-lg max-w-xl mx-auto font-light tracking-wide">
               {currentSlideData.subtitle}
             </p>
 
-            {/* Call to Action Buttons */}
-            <div className="pt-4 flex justify-center gap-4">
-              <button className="px-6 py-3 bg-amber-500 text-black font-extrabold uppercase rounded shadow-lg hover:bg-amber-400 transition-all cursor-pointer transform hover:scale-105 active:scale-95 duration-200">
+            {/* Call to Action Buttons: Strict Black & White contrast inversion */}
+            <div className="pt-6 flex justify-center gap-4">
+              <button className="px-8 py-4 bg-white text-black font-black uppercase tracking-wider text-sm rounded-none shadow-2xl hover:bg-zinc-200 transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 duration-200">
                 Get Started
               </button>
-              <button className="px-6 py-3 border-2 border-white text-white font-extrabold uppercase rounded hover:bg-white hover:text-black transition-all cursor-pointer transform hover:scale-105 active:scale-95 duration-200">
+              <button className="px-8 py-4 border border-white/80 text-white font-black uppercase tracking-wider text-sm rounded-none hover:bg-white hover:text-black transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 duration-200">
                 Learn More
               </button>
             </div>
@@ -120,14 +120,14 @@ const HeroSection = () => {
         </AnimatePresence>
       </div>
 
-      {/* Slide Indicators / Dots */}
-      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-3">
+      {/* Slide Indicators / Dots: Controlled opacity instead of color */}
+      <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-3">
         {slidesData.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
-              index === currentSlide ? "w-8 bg-amber-500" : "w-2 bg-gray-500 hover:bg-gray-400"
+            className={`h-[3px] transition-all duration-300 rounded-none cursor-pointer ${
+              index === currentSlide ? "w-10 bg-white" : "w-4 bg-white/30 hover:bg-white/60"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
