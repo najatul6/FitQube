@@ -18,29 +18,29 @@ const Router = createBrowserRouter([
                 path: "/",
                 element: <Home />
             },
-            {
-                path: "signin",
-                element: <Signin />
-            },
-            {
-                path: "signUp",
-                element: <Signup />
-            }
+            // {
+            //     path: "signin",
+            //     element: <Signin />
+            // },
+            // {
+            //     path: "signUp",
+            //     element: <Signup />
+            // }
         ]
     },
-    {
-        path: "/dashboard",
-        element: <PrivateRoute>
-            <DashboardLayout />
-        </PrivateRoute>,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: "overview",
-                element: <Overview />
-            }
-        ]
-    }
+    // {
+    //     path: "/dashboard",
+    //     element: <PrivateRoute>
+    //         <DashboardLayout />
+    //     </PrivateRoute>,
+    //     errorElement: <ErrorPage />,
+    //     children: [
+    //         {
+    //             path: "overview",
+    //             element: <Overview />
+    //         }
+    //     ]
+    // }
     // {
     //     path:"/register",
     //     element:<Register/>
