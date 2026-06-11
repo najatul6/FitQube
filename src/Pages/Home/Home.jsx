@@ -1,5 +1,6 @@
 import AboutCoach from "@/components/pages/Home/AboutCoach";
 import AboutSection from "@/components/pages/Home/AboutSection";
+import CTA from "@/components/pages/Home/CTA";
 import FAQ from "@/components/pages/Home/FAQ";
 import FitnessSolution from "@/components/pages/Home/FitnessSolution";
 import HeroSection from "@/components/pages/Home/HeroSection";
@@ -20,6 +21,7 @@ const Home = () => {
                 <AboutCoach/>
                 <FitnessSolution/>
                 <FAQ/>
+                <CTA/>
             </ContentWrapper>
         </div>
     )
