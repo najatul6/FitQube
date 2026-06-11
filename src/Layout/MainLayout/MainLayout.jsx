@@ -29,6 +29,7 @@ const MainLayout = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
+                    className="max-w-7xl mx-auto"
                 >
                     <Outlet />
                 </motion.main>
