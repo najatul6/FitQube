@@ -36,7 +36,6 @@ const Navbar = () => {
   }, []);
 
   return (
-    // w-full এবং z-[100] নিশ্চিত করবে সব ডিভাইসে এটি সবার ওপরে ফিক্সড থাকবে
     <nav className={`sticky top-0 w-full left-0 z-100 bg-white text-neutral-900 px-6 lg:px-12 py-4 transition-all duration-300 ${
       isSticky ? 'shadow-sm border-b border-neutral-200' : 'border-b border-neutral-100'
     }`}>
@@ -97,7 +96,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* MOBILE OVERLAY - z-[1000] এবং ফিক্সড পজিশন ব্যাকগ্রাউন্ড ঢেকে রাখবে */}
+      {/* MOBILE OVERLAY */}
       <div
         className={`fixed inset-0 bg-black/40 backdrop-blur-sm lg:hidden transition-opacity duration-300 z-1000 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -107,7 +106,7 @@ const Navbar = () => {
 
       {/* MOBILE DRAWER */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white/40 backdrop-blur-sm border-l border-neutral-100 py-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out lg:hidden z-[1001] ${
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white/40 backdrop-blur-sm border-l border-neutral-100 py-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out lg:hidden z-1001 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
