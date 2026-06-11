@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import CallButton from "@/components/shared/CallButton";
 import Loader from "@/components/shared/Loader";
+import Footer from "@/components/shared/Footer";
 
 const MainLayout = () => {
     const location = useLocation();
@@ -42,6 +43,7 @@ const MainLayout = () => {
             </AnimatePresence>
             
             <CallButton />
+            <Footer/>
         </div>
     );
 }
