@@ -13,26 +13,26 @@ const Loader = () => {
 
           {/* center logo */}
           <div className="absolute">
-            <img src={logo} alt="PlumbQube" className='w-22 rounded-full' />
+            <img src={logo} alt="FitQube" className='w-22 rounded-full' />
           </div>
         </div>
 
         {/* loading text */}
         <div className="text-center">
-          <h2 className="text-xl font-semibold text-gray-800">PlumbQube</h2>
+          <h2 className="text-xl font-semibold text-gray-800">FitQube</h2>
 
-          <p className="text-sm text-gray-500 mt-1 tracking-wide">
+          {/* <p className="text-sm text-gray-500 mt-1 tracking-wide">
             Loading your experience...
-          </p>
+          </p> */}
         </div>
 
         {/* animated dots */}
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-primary-200 animate-bounce"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-black animate-bounce"></span>
 
-          <span className="w-2.5 h-2.5 rounded-full bg-primary-200 animate-bounce delay-150"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-black animate-bounce delay-150"></span>
 
-          <span className="w-2.5 h-2.5 rounded-full bg-primary-200 animate-bounce delay-300"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-black animate-bounce delay-300"></span>
         </div>
       </div>
     </div>
