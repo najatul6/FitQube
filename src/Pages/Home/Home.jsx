@@ -1,5 +1,6 @@
 import AboutCoach from "@/components/pages/Home/AboutCoach";
 import AboutSection from "@/components/pages/Home/AboutSection";
+import FAQ from "@/components/pages/Home/FAQ";
 import FitnessSolution from "@/components/pages/Home/FitnessSolution";
 import HeroSection from "@/components/pages/Home/HeroSection";
 import ProPlan from "@/components/pages/Home/ProPlan";
@@ -18,6 +19,7 @@ const Home = () => {
                 <ProPlan/>
                 <AboutCoach/>
                 <FitnessSolution/>
+                <FAQ/>
             </ContentWrapper>
         </div>
     )
