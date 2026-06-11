@@ -1,47 +1,54 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img1 from "@/assets/sliderImages/1.jpg"
-import img2 from "@/assets/sliderImages/2.jpg"
-import img3 from "@/assets/sliderImages/3.jpg"
-import img4 from "@/assets/sliderImages/4.jpg"
-import img5 from "@/assets/sliderImages/5.jpg"
+import img1 from "@/assets/sliderImages/1.webp"
+import img2 from "@/assets/sliderImages/2.webp"
+import img3 from "@/assets/sliderImages/3.webp"
+import img4 from "@/assets/sliderImages/4.webp"
+import img5 from "@/assets/sliderImages/5.webp"
 
 const slidesData = [
+
     {
+
         id: 1,
         title: "TRANSFORM YOUR BODY, ELEVATE YOUR LIFE",
         subtitle: "Join the ultimate fitness community and unleash your inner beast today.",
         bgImage: img1,
-        effect: "slideLeft", // Effect 1: Left to Right
+        effect: "slideLeft",
     },
+
     {
         id: 2,
         title: "PUSH YOUR LIMITS, BREAK THE BARRIERS",
         subtitle: "Expert trainers, premium equipment, and customized workout plans.",
         bgImage: img2,
-        effect: "scaleUp", // Effect 2: Smooth Zoom In
+        effect: "scaleUp",
     },
+
     {
         id: 3,
         title: "NO PAIN, NO GAIN. SHAPE YOUR DESTINY",
         subtitle: "Get access to 24/7 gym floor, group classes, and nutrition tracking.",
         bgImage: img3,
-        effect: "slideUp", // Effect 3: Bottom to Top
+        effect: "slideUp",
     },
+
     {
         id: 4,
         title: "FUEL YOUR FUTURE, EMPOWER YOUR LIFE",
         subtitle: "Join a community that supports your fitness journey every step of the way.",
         bgImage: img4,
-        effect: "slideRight", // Effect 4: Right to Left
+        effect: "slideLeft",
     },
+
     {
         id: 5,
         title: "YOUR FITNESS JOURNEY STARTS HERE",
         subtitle: "Experience the difference with our state-of-the-art facilities and expert guidance.",
         bgImage: img5,
-        effect: "scaleDown", // Effect 5: Dramatic Zoom Out
+        effect: "scaleUp",
     }
+
 ];
 
 const HeroSection = () => {
@@ -50,49 +57,36 @@ const HeroSection = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slidesData.length);
-        }, 5000);
+        }, 6000);
         return () => clearInterval(timer);
     }, []);
 
     const getAnimationVariants = (effect) => {
+
         switch (effect) {
-            case "slideLeft": 
+            case "scaleUp":
                 return {
-                    initial: { x: "100%", opacity: 0 },
-                    animate: { x: 0, opacity: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-                    exit: { x: "-100%", opacity: 0, transition: { duration: 0.6 } },
-                };
-            case "scaleUp": 
-                return {
-                    initial: { scale: 1.2, opacity: 0 },
-                    animate: { scale: 1, opacity: 1, transition: { duration: 1, ease: "easeOut" } },
-                    exit: { scale: 0.95, opacity: 0, transition: { duration: 0.6 } },
-                };
-            case "slideUp": 
-                return {
-                    initial: { y: "100%", opacity: 0 },
-                    animate: { y: 0, opacity: 1, transition: { duration: 0.9, ease: "easeInOut" } },
-                    exit: { y: "-100%", opacity: 0, transition: { duration: 0.6 } },
-                };
-            case "slideRight": 
-                return {
-                    initial: { x: "-100%", opacity: 0 },
-                    animate: { x: 0, opacity: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-                    exit: { x: "100%", opacity: 0, transition: { duration: 0.6 } },
-                };
-            case "scaleDown": 
-                return {
-                    initial: { scale: 0.85, opacity: 0 },
-                    animate: { scale: 1, opacity: 1, transition: { duration: 1, ease: "easeOut" } },
-                    exit: { scale: 1.1, opacity: 0, transition: { duration: 0.6 } },
-                };
-            default: 
-                return {
-                    initial: { opacity: 0 },
-                    animate: { opacity: 1, transition: { duration: 0.8 } },
+                    initial: { scale: 1.15, opacity: 0 },
+                    animate: { scale: 1, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
                     exit: { opacity: 0, transition: { duration: 0.5 } },
                 };
+
+            case "slideUp":
+                return {
+                    initial: { y: "100%", opacity: 0 },
+                    animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } },
+                    exit: { y: "-100%", opacity: 0, transition: { duration: 0.5 } },
+                };
+
+            default:
+                return {
+                    initial: { x: "100%", opacity: 0 },
+                    animate: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } },
+                    exit: { x: "-100%", opacity: 0, transition: { duration: 0.5 } },
+                };
+
         }
+
     };
 
     const currentSlideData = slidesData[currentSlide];
