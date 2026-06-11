@@ -1,7 +1,11 @@
+import HeroSection from "@/components/pages/Home/HeroSection";
+
 const Home=()=>{
     return(
-        <div className="min-h-screen flex justify-center items-center text-center w-full">
-            Hello world
+        <div>
+            <div className="">
+                <HeroSection/>
+            </div>
         </div>
     )
 }
