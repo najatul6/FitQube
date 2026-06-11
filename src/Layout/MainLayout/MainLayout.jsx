@@ -23,9 +23,7 @@ const MainLayout = () => {
     }
 
     return (
-        // relative ক্লাসটি স্ক্রোল পজিশন এবং স্টিকি বিহেভিয়ার ঠিক রাখবে
         <div className="relative min-h-screen bg-[#ffffff]">
-            {/* ন্যাভবার সবার উপরে স্বাধীনভাবে থাকবে */}
             <Navbar />
             
             <AnimatePresence mode="wait">
@@ -35,7 +33,6 @@ const MainLayout = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
-                    // z-0 নিশ্চিত করবে যেন এটি ন্যাভবার বা ড্রয়ারের ওপরে না ওঠে
                     className="relative z-0"
                 >
                     <Outlet />
