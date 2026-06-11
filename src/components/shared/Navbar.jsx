@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Instagram, Github, Dribbble, Linkedin } from 'lucide-react';
 
 const Navbar = () => {
@@ -21,11 +21,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#ffffff] text-neutral-900 px-6 md:px-12 py-4 relative z-50 border-b border-neutral-100">
+    <nav className="sticky top-0 bg-[#ffffff]/95 backdrop-blur-md text-neutral-900 px-6 md:px-12 py-4 z-50 border-b border-neutral-100">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         
         <NavLink to="/" className="text-xl font-bold tracking-wide text-neutral-950 hover:opacity-80 transition-opacity">
-          Logo
+          Fit<span>Qube</span>
         </NavLink>
 
         <div className="hidden md:flex items-center space-x-10 text-[15px] font-medium">
