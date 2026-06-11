@@ -1,3 +1,4 @@
+import AboutCoach from "@/components/pages/Home/AboutCoach";
 import AboutSection from "@/components/pages/Home/AboutSection";
 import HeroSection from "@/components/pages/Home/HeroSection";
 import ProPlan from "@/components/pages/Home/ProPlan";
@@ -14,6 +15,7 @@ const Home = () => {
                 <SuccessStories/>
                 <TransformYourself/>
                 <ProPlan/>
+                <AboutCoach/>
             </ContentWrapper>
         </div>
     )
