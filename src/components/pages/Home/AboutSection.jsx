@@ -1,10 +1,29 @@
-import aboutImg from "@/assets/sliderImages/7.webp"; 
+import aboutImg from "@/assets/sliderImages/7.webp";
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   const fullStory = `FITQUBE - World’s Most Affordable Fitness Coaching Platform – where fitness meets simplicity and results! Whether you're a beginner or a seasoned fitness enthusiast, FITQUBE offers a personalized approach to your fitness journey, making it feel like you have a personal coach in your pocket.
 
@@ -48,14 +67,20 @@ Ready to Begin?
 
 Click  “Download Now” to get started with FITQUBE. Your fitness journey awaits!`;
   return (
-    <section className="py-20 px-4 md:px-8 bg-white text-black flex items-center justify-center">
+    <motion.section
+       variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="py-20 px-4 md:px-8 bg-white text-black flex items-center justify-center">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* Left Side: Content Area */}
         <div className="space-y-6 order-2 md:order-1">
-          <span className="text-zinc-800 text-xs md:text-sm font-black uppercase tracking-[0.3em] border-l-2 border-black pl-3 block">
+          <motion.span 
+            variants={itemVariants} className="text-zinc-800 text-xs md:text-sm font-black uppercase tracking-[0.3em] border-l-2 border-black pl-3 block">
             Who We Are
-          </span>
+          </motion.span>
 
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
             Welcome to FITQUBE
@@ -147,7 +172,7 @@ Click  “Download Now” to get started with FITQUBE. Your fitness journey awai
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
-    </section>
+    </motion.section>
   );
 };
 
