@@ -25,9 +25,9 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 bg-[#ffffff]/95 backdrop-blur-md text-neutral-900 px-6 md:px-12 py-4 z-50 border-b border-neutral-100">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        
-        <NavLink to="/" className="text-xl uppercase tracking-wide text-neutral-950 hover:opacity-80 transition-opacity">
-         <MdOutlineSportsGymnastics /> <span className='font-bold'>Fit</span>Qube
+
+        <NavLink to="/" className="text-xl uppercase tracking-wide text-neutral-950 hover:opacity-80 transition-opacity flex justify-center items-center">
+          <MdOutlineSportsGymnastics size={28} />Fit<span className='font-bold'>Qube</span>
         </NavLink>
 
         <div className="hidden md:flex items-center space-x-10 text-[15px] font-medium">
@@ -36,23 +36,35 @@ const Navbar = () => {
               key={link.name}
               to={link.to}
               className={({ isActive }) =>
-                `transition-colors duration-200 ${
-                  isActive ? 'text-[#2a9d8f] font-semibold' : 'text-neutral-500 hover:text-neutral-950'
+                `group relative transition-colors duration-300 ${isActive
+                  ? "font-semibold"
+                  : "text-neutral-500 hover:text-neutral-950"
                 }`
               }
             >
-              {link.name}
+              {({ isActive }) => (
+                <>
+                  <span>{link.name}</span>
+
+                  <span
+                    className={`absolute left-0 -bottom-3 h-0.5 w-full bg-black rounded-full origin-bottom transition-transform duration-300 ease-out ${isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                  />
+                </>
+              )}
             </NavLink>
           ))}
         </div>
 
         <div className="hidden md:flex items-center space-x-5 text-neutral-400">
           {socialLinks.map((social, index) => (
-            <a 
-              key={index} 
-              href={social.href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-neutral-950 transition-colors duration-200 transform hover:scale-110"
             >
               {social.icon}
@@ -61,8 +73,8 @@ const Navbar = () => {
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <button 
-          onClick={() => setIsOpen(true)} 
+        <button
+          onClick={() => setIsOpen(true)}
           className="md:hidden text-neutral-600 hover:text-neutral-950 transition-colors focus:outline-none cursor-pointer"
           aria-label="Open Menu"
         >
@@ -70,22 +82,20 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div 
-        className={`fixed inset-0 bg-black/20 backdrop-blur-xs md:hidden transition-opacity duration-300 z-50 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+      <div
+        className={`fixed inset-0 bg-black/20 backdrop-blur-xs md:hidden transition-opacity duration-300 z-50 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={() => setIsOpen(false)}
       />
 
-      <div 
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#ffffff] border-l border-neutral-100 z-50 p-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out md:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+      <div
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#ffffff] border-l border-neutral-100 z-50 p-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         {/* Close Button */}
         <div className="flex justify-end">
-          <button 
-            onClick={() => setIsOpen(false)} 
+          <button
+            onClick={() => setIsOpen(false)}
             className="text-neutral-400 hover:text-neutral-950 transition-colors focus:outline-none cursor-pointer"
             aria-label="Close Menu"
           >
@@ -95,8 +105,8 @@ const Navbar = () => {
 
         <div className="flex flex-col space-y-6 my-auto pl-4">
           {navLinks.map((link) => (
-            <NavLink 
-              key={link.name} 
+            <NavLink
+              key={link.name}
               to={link.to}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) => `
@@ -121,11 +131,11 @@ const Navbar = () => {
         {/* Mobile Social Icons */}
         <div className="flex items-center space-x-6 pl-4 pb-4 text-neutral-400">
           {socialLinks.map((social, index) => (
-            <Link 
-              key={index} 
-              to={social.href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <Link
+              key={index}
+              to={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-neutral-950 transition-colors duration-200"
             >
               {social.icon}
