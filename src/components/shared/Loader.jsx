@@ -9,7 +9,7 @@ const Loader = () => {
 
           <div className="absolute w-24 h-24 rounded-full border-4 border-transparent border-t-primary-200 animate-spin"></div>
 
-          <div className="absolute w-16 h-16 rounded-full border-4 border-transparent border-b-secondary-200 animate-spin [animation-direction:reverse] [animation-duration:1.2s]"></div>
+          <div className="absolute w-16 h-16 rounded-full border-4 border-transparent border-b-secondary-200 animate-spin direction-[reverse] animation-duration-[1.2s]"></div>
 
           {/* center logo */}
           <div className="absolute">
