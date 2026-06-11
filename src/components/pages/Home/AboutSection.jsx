@@ -11,13 +11,14 @@ const AboutSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15, 
+        delayChildren: 0.1,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 25 },
+    const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -68,44 +69,49 @@ Ready to Begin?
 Click  “Download Now” to get started with FITQUBE. Your fitness journey awaits!`;
   return (
     <motion.section
-       variants={containerVariants}
+      variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ amount: 0.2 }}
       className="py-20 px-4 md:px-8 bg-white text-black flex items-center justify-center">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* Left Side: Content Area */}
         <div className="space-y-6 order-2 md:order-1">
-          <motion.span 
+          <motion.span
             variants={itemVariants} className="text-zinc-800 text-xs md:text-sm font-black uppercase tracking-[0.3em] border-l-2 border-black pl-3 block">
             Who We Are
           </motion.span>
 
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
             Welcome to FITQUBE
-          </h2>
+          </motion.h2>
 
-          <div className="text-zinc-950 font-light space-y-4 leading-relaxed tracking-wide text-sm md:text-base">
+          <motion.div variants={itemVariants} className="text-zinc-950 font-light space-y-4 leading-relaxed tracking-wide text-sm md:text-base">
             <p>
               FITQUBE - World's Most Affordable Fitness Coaching Platform -
               where fitness meets simplicity and results! Whether you're a
               beginner or a seasoned fitness enthusiast, FITQUBE offers a
               personalized approach...
             </p>
-          </div>
+          </motion.div>
 
           {/* Radix UI Dialog / Modal Trigger Button */}
-          <button
+          <motion.button
+            variants={itemVariants}
             onClick={() => setIsOpen(true)}
             className="text-zinc-800 text-sm font-black uppercase tracking-wider border-b-2 border-b-zinc-400 pb-1 hover:text-zinc-800 hover:border-zinc-950 hover:border-b-3 transition-all cursor-pointer inline-block"
           >
             Read Full Story &rarr;
-          </button>
+          </motion.button>
         </div>
 
         {/* Right Side: Visual/Video Thumbnail Area */}
-        <div className="relative order-1 md:order-2 group cursor-pointer overflow-hidden rounded-xl aspect-video  max-h-[550px]">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: 40 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+          }} className="relative order-1 md:order-2 group cursor-pointer overflow-hidden rounded-xl aspect-video  max-h-[550px]">
           {/* Grayscale Background Image to match B&W profile */}
           <div
             className="w-full h-full bg-cover bg-center  transition-transform duration-700 group-hover:scale-105"
@@ -121,7 +127,7 @@ Click  “Download Now” to get started with FITQUBE. Your fitness journey awai
               <Play className="w-6 h-6 md:w-8 md:h-8 fill-black stroke-none ml-1" />
             </div>
           </div> */}
-        </div>
+        </motion.div>
 
       </div>
 
