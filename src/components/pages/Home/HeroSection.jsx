@@ -56,37 +56,37 @@ const HeroSection = () => {
 
     const getAnimationVariants = (effect) => {
         switch (effect) {
-            case "slideLeft": // 1. Come from Right, Exit to Left
+            case "slideLeft": 
                 return {
                     initial: { x: "100%", opacity: 0 },
                     animate: { x: 0, opacity: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
                     exit: { x: "-100%", opacity: 0, transition: { duration: 0.6 } },
                 };
-            case "scaleUp": // 2. Zoom In from center
+            case "scaleUp": 
                 return {
                     initial: { scale: 1.2, opacity: 0 },
                     animate: { scale: 1, opacity: 1, transition: { duration: 1, ease: "easeOut" } },
                     exit: { scale: 0.95, opacity: 0, transition: { duration: 0.6 } },
                 };
-            case "slideUp": // 3. Come from Bottom, Exit to Top
+            case "slideUp": 
                 return {
                     initial: { y: "100%", opacity: 0 },
                     animate: { y: 0, opacity: 1, transition: { duration: 0.9, ease: "easeInOut" } },
                     exit: { y: "-100%", opacity: 0, transition: { duration: 0.6 } },
                 };
-            case "slideRight": // 4. Come from Left, Exit to Right
+            case "slideRight": 
                 return {
                     initial: { x: "-100%", opacity: 0 },
                     animate: { x: 0, opacity: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
                     exit: { x: "100%", opacity: 0, transition: { duration: 0.6 } },
                 };
-            case "scaleDown": // 5. Start normal/small, zoom out into screen
+            case "scaleDown": 
                 return {
                     initial: { scale: 0.85, opacity: 0 },
                     animate: { scale: 1, opacity: 1, transition: { duration: 1, ease: "easeOut" } },
                     exit: { scale: 1.1, opacity: 0, transition: { duration: 0.6 } },
                 };
-            default: // Fallback smooth cross-fade
+            default: 
                 return {
                     initial: { opacity: 0 },
                     animate: { opacity: 1, transition: { duration: 0.8 } },
@@ -108,7 +108,6 @@ const HeroSection = () => {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        // brightness and grayscale keeps everything strictly black & white
                         className="absolute inset-0 w-full h-full bg-cover bg-center "
                         style={{ backgroundImage: `url('${currentSlideData.bgImage}')` }}
                     />
@@ -157,7 +156,7 @@ const HeroSection = () => {
                 </AnimatePresence>
             </div>
 
-            {/* Slide Indicators / Dots: Controlled opacity instead of color */}
+            {/* Slide Indicators */}
             <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-3">
                 {slidesData.map((_, index) => (
                     <button
