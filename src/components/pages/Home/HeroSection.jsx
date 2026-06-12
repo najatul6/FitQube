@@ -92,7 +92,7 @@ const HeroSection = () => {
     const currentSlideData = slidesData[currentSlide];
 
     return (
-        <div className="relative w-full h-[85vh]  overflow-hidden bg-zinc-950 flex items-center justify-center">
+        <div className="relative w-full h-[85vh] md:h-[95vh] overflow-hidden bg-zinc-950 flex items-center justify-center">
             {/* Dynamic Background Image Slider with Grayscale filter */}
             <div className="absolute inset-0 w-full h-full z-0">
                 <AnimatePresence mode="wait">
