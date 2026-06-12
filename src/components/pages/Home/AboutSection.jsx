@@ -109,8 +109,8 @@ Click  “Download Now” to get started with FITQUBE. Your fitness journey awai
         {/* Right Side: Visual/Video Thumbnail Area */}
         <motion.div
           variants={{
-            hidden: { opacity: 0, x: 40 },
-            visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
           }} className="relative order-1 md:order-2 group cursor-pointer overflow-hidden rounded-xl aspect-video  max-h-[550px]">
           {/* Grayscale Background Image to match B&W profile */}
           <div
