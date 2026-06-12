@@ -2,7 +2,7 @@ import aboutImg from "@/assets/sliderImages/2.webp";
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const AboutSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,67 +117,122 @@ Click  “Download Now” to get started with FITQUBE. Your fitness journey awai
             className="w-full h-full bg-cover bg-center  transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: `url('${aboutImg}')` }}
           />
-
-          {/* Stark overlay layer */}
-          {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" /> */}
-
-          {/* Dynamic Play Button centered */}
-          {/* <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-white text-black flex items-center justify-center rounded-none shadow-2xl transition-all duration-300 transform group-hover:scale-110">
-              <Play className="w-6 h-6 md:w-8 md:h-8 fill-black stroke-none ml-1" />
-            </div>
-          </div> */}
         </motion.div>
 
       </div>
 
       {/* ================= Radix UI Responsive Modal Section ================= */}
-      <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
-        <Dialog.Portal>
-          {/* Overlay Background */}
-          <Dialog.Overlay className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 transition-opacity duration-300" />
+      {/* ================= Animated Radix Modal ================= */}
+<Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+  <AnimatePresence>
+    {isOpen && (
+      <Dialog.Portal forceMount>
+        {/* Overlay */}
+        <Dialog.Overlay asChild>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50"
+          />
+        </Dialog.Overlay>
 
-          {/* Modal Content Wrapper */}
-          <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-2xl bg-zinc-900 border border-zinc-800 p-6 md:p-10 z-50 text-white focus:outline-none rounded-none shadow-2xl max-h-[85vh] overflow-y-auto">
+        {/* Modal */}
+        <Dialog.Content asChild>
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.95,
+              y: 40,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.95,
+              y: 40,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-2xl bg-zinc-900 border border-zinc-800 p-6 md:p-10 z-50 text-white focus:outline-none shadow-2xl max-h-[85vh] overflow-y-auto"
+          >
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+              }}
+            >
+              {/* Header */}
+              <div className="flex justify-between items-start mb-6">
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
+                  <Dialog.Title className="text-2xl md:text-3xl font-black uppercase tracking-tight">
+                    Our Legacy & Vision
+                  </Dialog.Title>
 
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <Dialog.Title className="text-2xl md:text-3xl font-black uppercase tracking-tight">
-                  Our Legacy & Vision
-                </Dialog.Title>
-                <Dialog.Description className="text-zinc-500 text-xs uppercase tracking-widest mt-1">
-                  The Full FitQube Story
-                </Dialog.Description>
+                  <Dialog.Description className="text-zinc-500 text-xs uppercase tracking-widest mt-1">
+                    The Full FitQube Story
+                  </Dialog.Description>
+                </motion.div>
+
+                <Dialog.Close asChild>
+                  <button
+                    className="p-2 hover:bg-zinc-800 transition-colors cursor-pointer text-zinc-400 hover:text-white"
+                    aria-label="Close dialog"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </Dialog.Close>
               </div>
 
-              {/* Close Button */}
-              <Dialog.Close asChild>
-                <button
-                  className="p-2 hover:bg-zinc-800 transition-colors cursor-pointer text-zinc-400 hover:text-white"
-                  aria-label="Close dialog"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </Dialog.Close>
-            </div>
+              {/* Story */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 15 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                className="text-zinc-300 font-light text-sm md:text-base leading-relaxed tracking-wide whitespace-pre-line"
+              >
+                {fullStory}
+              </motion.div>
 
-            {/* Scrollable Story content */}
-            <div className="text-zinc-300 font-light text-sm md:text-base leading-relaxed tracking-wide space-y-4 whitespace-pre-line">
-              {fullStory}
-            </div>
-
-            {/* Bottom CTA to wrap layout inside modal */}
-            <div className="mt-8 pt-6 border-t border-zinc-800 flex justify-end">
-              <Dialog.Close asChild>
-                <button className="px-6 py-3 bg-white text-black font-black uppercase tracking-wider text-xs rounded-none hover:bg-zinc-200 transition-colors cursor-pointer">
-                  Close Story
-                </button>
-              </Dialog.Close>
-            </div>
-
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+              {/* Footer */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 15 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                className="mt-8 pt-6 border-t border-zinc-800 flex justify-end"
+              >
+                <Dialog.Close asChild>
+                  <button className="px-6 py-3 bg-white text-black font-black uppercase tracking-wider text-xs hover:bg-zinc-200 transition-colors cursor-pointer">
+                    Close Story
+                  </button>
+                </Dialog.Close>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    )}
+  </AnimatePresence>
+</Dialog.Root>
     </motion.section>
   );
 };
