@@ -14,6 +14,7 @@ const Home = () => {
         <div>
             <HeroSection />
             <ContentWrapper>
+                <div className="space-y-10 pt-5">
                 <AboutSection />
                 <SuccessStories/>
                 <TransformYourself/>
@@ -22,6 +23,7 @@ const Home = () => {
                 <FitnessSolution/>
                 <FAQ/>
                 <CTA/>
+                </div>
             </ContentWrapper>
         </div>
     )
