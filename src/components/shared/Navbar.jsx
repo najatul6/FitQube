@@ -3,11 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Instagram, Github, Dribbble, Linkedin } from 'lucide-react';
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-
-  const navLinks = [
+const navLinks = [
     { name: 'Home', to: '/' },
     { name: 'About Us', to: '/about' },
     { name: 'Coaching Plans', to: '/coaching-plans' },
@@ -21,6 +17,12 @@ const Navbar = () => {
     { icon: <Dribbble className="w-5 h-5" />, href: 'https://dribbble.com' },
     { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com' },
   ];
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +48,7 @@ const Navbar = () => {
         </NavLink>
 
         <div className="hidden lg:flex items-center space-x-10 text-[15px] font-medium">
-          {navLinks.map((link) => (
+          {navLinks?.map((link) => (
             <NavLink
               key={link.name}
               to={link.to}
@@ -73,16 +75,16 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center space-x-5 text-neutral-400">
-          {socialLinks.map((social, index) => (
-            <a
+          {socialLinks?.map((social, index) => (
+            <Link
               key={index}
-              href={social.href}
+              to={social.href}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-neutral-950 transition-colors duration-200 transform hover:scale-110"
             >
               {social.icon}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -149,15 +151,15 @@ const Navbar = () => {
         {/* Mobile Social Icons */}
         <div className="flex items-center space-x-6 pl-4 pb-4 text-neutral-400">
           {socialLinks.map((social, index) => (
-            <a
+            <Link
               key={index}
-              href={social.href}
+              to={social.href}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-neutral-950 transition-colors duration-200"
             >
               {social.icon}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
