@@ -56,7 +56,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slidesData.length);
+            setCurrentSlide((prev) => (prev + 1) % slidesData?.length);
         }, 6000);
         return () => clearInterval(timer);
     }, []);
@@ -96,14 +96,15 @@ const HeroSection = () => {
             {/* Dynamic Background Image Slider with Grayscale filter */}
             <div className="absolute inset-0 w-full h-full z-0">
                 <AnimatePresence mode="wait">
-                    <motion.div
+                    <motion.img
                         key={currentSlideData.id}
                         variants={getAnimationVariants(currentSlideData.effect)}
                         initial="initial"
                         animate="animate"
                         exit="exit"
                         className="absolute inset-0 w-full h-full bg-cover bg-center "
-                        style={{ backgroundImage: `url('${currentSlideData.bgImage}')` }}
+                        src={currentSlideData.bgImage}
+                        alt="Hero Banner"
                     />
                 </AnimatePresence>
 
