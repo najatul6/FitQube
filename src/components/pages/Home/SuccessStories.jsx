@@ -81,7 +81,7 @@ const SuccessStories = () => {
         </div>
 
         <Swiper
-          
+
           modules={[Navigation, Autoplay]}
           slidesPerView={3}
           spaceBetween={30}
@@ -99,14 +99,24 @@ const SuccessStories = () => {
             prevEl: prevRef.current,
             nextEl: nextRef.current,
           }}
-          className="border"
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
         >
           {slides.map((item) => (
             <SwiperSlide className="" key={item.id}>
               <motion.img
-              initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
                 src={item.image}
                 className="w-full h-[300px] object-cover"
               />
