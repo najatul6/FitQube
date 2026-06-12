@@ -1,85 +1,87 @@
-import successBeforeMale from "@/assets/successstory/1.png"
-import successBeforeFemale from "@/assets/successstory/2.png"
-import successAfterMale from "@/assets/successstory/3.png"
-import successAfterFemale from "@/assets/successstory/4.png"
+import successBeforeMale from "@/assets/successstory/1.png";
+import successBeforeFemale from "@/assets/successstory/2.png";
+import successAfterMale from "@/assets/successstory/3.png";
+import successAfterFemale from "@/assets/successstory/4.png";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+const slides = [
+  {
+    id: 1,
+    image: successBeforeMale,
+  },
+  {
+    id: 2,
+    image: successBeforeFemale,
+  },
+  {
+    id: 3,
+    image: successAfterMale,
+  },
+  {
+    id: 4,
+    image: successAfterFemale,
+  }
+];
 
 const SuccessStories = () => {
   return (
-    <section className="py-32 px-6 bg-brand-surface/30">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-display font-medium uppercase tracking-tighter text-4xl mb-16">
-          Client Results
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="group space-y-4">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="aspect-3/5 bg-brand-surface outline-1 -outline-offset-1 outline-white/5 rounded-l-lg overflow-hidden">
-                <img
-                  src={successBeforeMale}
-                  alt="Jameson before training"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  width={512}
-                  height={800}
-                />
-              </div>
-              <div className="aspect-3/5 bg-brand-surface outline-1 -outline-offset-1 outline-white/5 rounded-r-lg overflow-hidden">
-                <img
-                  src={successAfterMale}
-                  alt="Jameson after 12 weeks"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  width={512}
-                  height={800}
-                />
-              </div>
-            </div>
-            <div className="pt-4 border-t border-brand-muted/30">
-              <h3 className="font-medium">Jameson K.</h3>
-              <p className="text-sm text-zinc-500">12-Week Hypertrophy Phase</p>
-            </div>
-          </div>
-          <div className="group space-y-4">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="aspect-[3/5] bg-brand-surface outline outline-1 -outline-offset-1 outline-white/5 rounded-l-lg overflow-hidden">
-                <img
-                  src={successBeforeFemale}
-                  alt="Sarah before training"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  width={512}
-                  height={800}
-                />
-              </div>
-              <div className="aspect-[3/5] bg-brand-surface outline outline-1 -outline-offset-1 outline-white/5 rounded-r-lg overflow-hidden">
-                <img
-                  src={successAfterFemale}
-                  alt="Sarah after training"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  width={512}
-                  height={800}
-                />
-              </div>
-            </div>
-            <div className="pt-4 border-t border-brand-muted/30">
-              <h3 className="font-medium">Sarah M.</h3>
-              <p className="text-sm text-zinc-500">Fat Loss & Metabolic Reset</p>
-            </div>
-          </div>
-          <div className="group space-y-4">
-            <div className="aspect-[3/5] bg-brand-surface outline outline-1 -outline-offset-1 outline-white/5 rounded-lg grid place-items-center">
-              <span className="text-xs font-medium uppercase tracking-widest text-brand-muted">Result Coming Soon</span>
-            </div>
-            <div className="pt-4 border-t border-brand-muted/30">
-              <h3 className="font-medium">Alex D.</h3>
-              <p className="text-sm text-zinc-500">Total Body Recomposition</p>
-            </div>
+
+        {/* Header */}
+        <div className="flex justify-between items-end mb-10">
+          <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
+            Our Success Stories
+          </h2>
+
+          {/* TOP RIGHT CONTROLS */}
+          <div className="flex items-center gap-4">
+            <div className="swiper-pagination static! text-sm font-bold text-black" />
+            <div className="swiper-button-prev static! text-black" />
+            <div className="swiper-button-next static! text-black" />
           </div>
         </div>
+
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          slidesPerView={3}
+          spaceBetween={30}
+          loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            type: "fraction",
+            el: ".swiper-pagination",
+          }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+        >
+          {slides.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="">
+                <img
+                  src={item.image}
+                  className="w-full rounded-xl object-cover"
+                />
+
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SuccessStories
+export default SuccessStories;
