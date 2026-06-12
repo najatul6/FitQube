@@ -28,17 +28,19 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <motion.section variants={containerVariants}
+    <motion.section 
+    variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2 }}>
+      viewport={{ amount: 0.2 }}
+      >
       <div className="w-full mx-auto text-center mb-12">
-        <motion.h2 variants={itemVariants} className="text-slate-900 text-3xl font-bold md:text-4xl">
+        <motion.h2 variants={itemVariants} className="text-zinc-900 text-3xl font-bold md:text-4xl">
           Frequently Asked Questions
         </motion.h2>
       </div>
 
-      <div className="w-full mx-auto divide-y divide-slate-200">
+      <div className="w-full mx-auto divide-y divide-zinc-400">
         {faqData.map((item, index) => {
           const isOpen = openIndex === index;
 
@@ -48,12 +50,12 @@ export default function FAQ() {
               <motion.button
                 variants={itemVariants}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="w-full cursor-pointer flex justify-between items-center text-left font-semibold text-slate-900"
+                className="w-full cursor-pointer flex justify-between items-center text-lg text-left font-semibold text-zinc-900"
               >
                 <span>{item.question}</span>
 
                 <span
-                  className={`text-xl transition-transform duration-300 ${isOpen ? "rotate-45" : ""
+                  className={`text-2xl transition-transform duration-300 ${isOpen ? "rotate-45" : ""
                     }`}
                 >
                   +
@@ -62,13 +64,13 @@ export default function FAQ() {
 
               {/* Answer (SMOOTH CSS ANIMATION ONLY) */}
               <div
-                className={`grid transition-all duration-300 ease-in-out ${isOpen
+                className={`grid transition-all duration-300 text-lg ease-in-out ${isOpen
                     ? "grid-rows-[1fr] opacity-100 mt-3"
                     : "grid-rows-[0fr] opacity-0 mt-0"
                   }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-zinc-950 leading-relaxed">
                     {item.answer}
                   </p>
                 </div>
