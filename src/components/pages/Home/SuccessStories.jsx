@@ -1,15 +1,17 @@
-import successBeforeMale from "@/assets/successstory/1.png";
-import successBeforeFemale from "@/assets/successstory/2.png";
-import successAfterMale from "@/assets/successstory/3.png";
-import successAfterFemale from "@/assets/successstory/4.png";
-
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import successBeforeMale from "@/assets/successstory/download (1).jfif";
+import successBeforeFemale from "@/assets/successstory/download.jfif";
+import successAfterMale from "@/assets/successstory/JASON STUART _ Online Dietitian + PT on Instagram_ _.jfif";
+import successAfterFemale from "@/assets/successstory/KJ.jfif";
+import successAfter1 from "@/assets/successstory/Telegram_ Contact @steriod_supply.jfif";
+import successAfter2 from "@/assets/successstory/Трансформация.jfif";
+import { motion } from "framer-motion"
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
 const slides = [
   {
     id: 1,
@@ -26,30 +28,61 @@ const slides = [
   {
     id: 4,
     image: successAfterFemale,
+  },
+  {
+    id: 5,
+    image: successAfter1,
+  },
+  {
+    id: 6,
+    image: successAfter2,
   }
 ];
 
 const SuccessStories = () => {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="">
+      <div className="w-full mx-auto">
 
         {/* Header */}
         <div className="flex justify-between items-end mb-10">
-          <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-4xl font-black uppercase tracking-tighter"
+          >
             Our Success Stories
-          </h2>
+          </motion.h2>
 
-          {/* TOP RIGHT CONTROLS */}
-          <div className="flex items-center gap-4">
-            <div className="swiper-pagination static! text-sm font-bold text-black" />
-            <div className="swiper-button-prev static! text-black" />
-            <div className="swiper-button-next static! text-black" />
-          </div>
+          {/* CUSTOM CONTROLS */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3">
+            <button
+              ref={prevRef}
+              className="cursor-pointer p-2 border rounded-full hover:bg-black hover:text-white transition"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <button
+              ref={nextRef}
+              className="cursor-pointer p-2 border rounded-full bg-black text-white transition"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </motion.div>
         </div>
 
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          
+          modules={[Navigation, Autoplay]}
           slidesPerView={3}
           spaceBetween={30}
           loop={true}
@@ -57,24 +90,26 @@ const SuccessStories = () => {
             delay: 3000,
             disableOnInteraction: false,
           }}
-          pagination={{
-            type: "fraction",
-            el: ".swiper-pagination",
+          onBeforeInit={(swiper) => {
+            // attach custom buttons
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
           }}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
           }}
+          className="border"
         >
           {slides.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="">
-                <img
-                  src={item.image}
-                  className="w-full rounded-xl object-cover"
-                />
-
-              </div>
+            <SwiperSlide className="" key={item.id}>
+              <motion.img
+              initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+                src={item.image}
+                className="w-full h-[300px] object-cover"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
