@@ -1,67 +1,41 @@
+import { faqData } from "@/lib/faqdata";
 import { useState } from "react";
+import {motion} from "framer-motion"
 
-const faqData = [
-  {
-    question: "What is FitQube?",
-    answer:
-      "FitQube is a modern fitness coaching platform that provides personalized workout plans, meal guidance, and progress tracking to help you achieve your fitness goals faster.",
+
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
   },
-  {
-    question: "Do I need a gym membership to use FitQube?",
-    answer:
-      "No, FitQube can be used both at home and in the gym. Our plans are flexible and designed for all fitness levels.",
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
   },
-  {
-    question: "Is FitQube suitable for beginners?",
-    answer:
-      "Yes! FitQube is perfect for beginners. We provide step-by-step workout plans, easy meal guides, and coach support to help you start your fitness journey.",
-  },
-  {
-    question: "Do you provide personal trainers?",
-    answer:
-      "Yes, FitQube offers expert coaches who guide you through personalized workout plans and help you stay consistent with your fitness journey.",
-  },
-  {
-    question: "How does the workout plan work?",
-    answer:
-      "After selecting your goal, FitQube creates a customized workout plan based on your body type, fitness level, and available equipment.",
-  },
-  {
-    question: "Can I change my workout plan later?",
-    answer:
-      "Yes, you can update or change your plan anytime based on your progress and new fitness goals.",
-  },
-  {
-    question: "Do you provide diet or meal plans?",
-    answer:
-      "Yes, FitQube includes personalized meal plans to support fat loss, muscle gain, and overall healthy lifestyle.",
-  },
-  {
-    question: "How can I track my progress?",
-    answer:
-      "You can track your workouts, body changes, weight updates, and daily progress directly inside the FitQube app.",
-  },
-  {
-    question: "What subscription plans are available?",
-    answer:
-      "FitQube offers flexible plans: monthly, 3-month, and 6-month packages with affordable pricing for all users.",
-  },
-  {
-    question: "How can I contact support?",
-    answer:
-      "You can contact FitQube support via in-app chat or email at contact@fitqube.com for any assistance.",
-  },
-];
+};
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="border">
+    <motion.section variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.2 }}>
       <div className="w-full mx-auto text-center mb-12">
-        <h2 className="text-slate-900 text-3xl font-bold md:text-4xl">
+        <motion.h2 variants={itemVariants} className="text-slate-900 text-3xl font-bold md:text-4xl">
           Frequently Asked Questions
-        </h2>
+        </motion.h2>
       </div>
 
       <div className="w-full mx-auto divide-y divide-slate-200">
@@ -71,28 +45,27 @@ export default function FAQ() {
           return (
             <div key={index} className="py-5">
               {/* Question */}
-              <button
+              <motion.button
+                variants={itemVariants}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 className="w-full cursor-pointer flex justify-between items-center text-left font-semibold text-slate-900"
               >
                 <span>{item.question}</span>
 
                 <span
-                  className={`text-xl transition-transform duration-300 ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
+                  className={`text-xl transition-transform duration-300 ${isOpen ? "rotate-45" : ""
+                    }`}
                 >
                   +
                 </span>
-              </button>
+              </motion.button>
 
               {/* Answer (SMOOTH CSS ANIMATION ONLY) */}
               <div
-                className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen
+                className={`grid transition-all duration-300 ease-in-out ${isOpen
                     ? "grid-rows-[1fr] opacity-100 mt-3"
                     : "grid-rows-[0fr] opacity-0 mt-0"
-                }`}
+                  }`}
               >
                 <div className="overflow-hidden">
                   <p className="text-slate-600 leading-relaxed">
@@ -104,6 +77,6 @@ export default function FAQ() {
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }
