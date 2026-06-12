@@ -1,4 +1,4 @@
-import aboutImg from "@/assets/sliderImages/7.webp";
+import aboutImg from "@/assets/sliderImages/2.webp";
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
@@ -22,7 +22,7 @@ const AboutSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
