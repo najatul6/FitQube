@@ -28,12 +28,6 @@ const TransformYourself = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.2 }}>
-      <motion.h2
-        variants={itemVariants}
-        className="text-3xl md:text-4xl mb-10 font-black uppercase tracking-tighter"
-      >
-        Transform Yourself With FITQUBE !
-      </motion.h2>
       <div class="w-full mx-auto">
         <div class="grid justify-center items-center gap-12 lg:grid-cols-2">
           <motion.div variants={itemVariants} class="aspect-19/12 w-full">
