@@ -73,7 +73,7 @@ Click  “Download Now” to get started with FITQUBE. Your fitness journey awai
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.2 }}
-      className="py-20 px-4 md:px-8 bg-white text-black flex items-center justify-center">
+      className=" bg-white text-black flex items-center justify-center">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* Left Side: Content Area */}
