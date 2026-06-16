@@ -35,11 +35,11 @@ const TransformYourself = () => {
               class="w-full h-full rounded-xl object-cover" />
           </motion.div>
           <motion.div variants={itemVariants} class="max-w-3xl">
-            <motion.h2 variants={itemVariants} class="text-3xl font-bold text-slate-900 mb-6 md:text-4xl">
+            <motion.h2 variants={itemVariants} class="text-3xl text-slate-900 mb-6 md:text-4xl font-display tracking-wide">
 
               Personalised Diet Plans!
             </motion.h2>
-            <motion.p variants={itemVariants} class="text-base text-slate-600 leading-relaxed">FITQUBE offers tailored diet plans with options for every preference—choose from veg, non-veg, and eggetarian, plus gluten-free, lactose-free, and gluten + lactose-free choices. With over 10,000 foods to explore, you’ll never get bored! We also have a vast database of restaurants and eateries like Dominos, Subway, Pizza Hut, Burger king, McDonald’s and many more so you can track your cheat meals even when you dine out. Enjoy a diet plan that fits your lifestyle and keeps you on track with FITQUBE!</motion.p>
+            <motion.p variants={itemVariants} class="text-base text-zinc-950 leading-relaxed">FITQUBE offers tailored diet plans with options for every preference—choose from veg, non-veg, and eggetarian, plus gluten-free, lactose-free, and gluten + lactose-free choices. With over 10,000 foods to explore, you’ll never get bored! We also have a vast database of restaurants and eateries like Dominos, Subway, Pizza Hut, Burger king, McDonald’s and many more so you can track your cheat meals even when you dine out. Enjoy a diet plan that fits your lifestyle and keeps you on track with FITQUBE!</motion.p>
 
             <motion.div variants={itemVariants} class="flex gap-4 flex-wrap mt-8">
               
