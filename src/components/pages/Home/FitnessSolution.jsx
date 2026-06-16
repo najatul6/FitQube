@@ -78,7 +78,6 @@ const FitnessSolution = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
         >
           {/* Heading */}
           <motion.div
