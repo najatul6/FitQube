@@ -14,7 +14,7 @@ const Home = () => {
         <div>
             <HeroSection />
             <ContentWrapper>
-                <div className="space-y-10 pt-5 px-6 lg:px-0">
+                <div className="space-y-12 pt-5 px-6 lg:px-0">
                 <AboutSection />
                 <SuccessStories/>
                 <TransformYourself/>
