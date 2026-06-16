@@ -20,19 +20,19 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.5,
     },
   },
 };
 
 const AboutCoach = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        className="max-w-7xl mx-auto px-6"
+        className="w-full mx-auto "
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image Section */}
