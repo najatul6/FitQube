@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import logo from "/logo.png"
 import { MoveRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Pending work for button to choose payment 
 
@@ -23,33 +24,42 @@ const ProPlan = () => {
           transition={{ duration: 0.5 }}
           className='flex justify-center items-center'
         >
-          <img src={logo} alt="Pro Plan Logo" className='w-2/3' />
+          <img src={logo} alt="Pro Plan Logo" className=' md:w-2/3 h-[250px] md:h-auto' />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className='border-l-2 border-amber-400 flex flex-col justify-between'
+          className='border-t-2 md:border-t-0 md:border-l-2 border-zinc-950 flex flex-col justify-between'
         >
-          <motion.h2 className="text-lg text-zinc-400 px-5">
-            Unlock exclusive benefits.
-          </motion.h2>
-          <div className='px-5'>
-            <p>Our coaching plans will help you reach your fitness goals faster!</p>
-            <ul>
-              <li>Personalised Workout Plans with video demonstrations</li>
-              <li>Personalised Meal Plans according to your goals (Veg, Non-veg, Eggetarian, Gluten Free, Lactose Free & Gluten+Lactose Free Diets available)</li>
-              <li>More than 10000 Food Options to choose and 100s of Easy to make Recipes</li>
-            </ul>
-          </div>
-            <button className='border-t-2 w-full flex justify-between items-center'>
+          <div className='flex flex-col justify-center items-start gap-4'>
+            <motion.h2 className="text-2xl font-bold capitalize text-zinc-950 px-5 py-2">
+              Unlock exclusive benefits.
+            </motion.h2>
+            <div className='px-5 text-lg'>
+              <p className=''>Our coaching plans will help you reach your fitness goals faster!</p>
               <div>
-                Starts
-                ₹349
-                for 1 month
+                <ul className='list-disc'>
+                  <li>Personalised Workout Plans with video demonstrations</li>
+                  <li>Personalised Meal Plans according to your goals (Veg, Non-veg, Eggetarian, Gluten Free, Lactose Free & Gluten+Lactose Free Diets available)</li>
+                  <li>More than 10000 Food Options to choose and 100s of Easy to make Recipes</li>
+                </ul>
               </div>
-              <MoveRight />
-            </button>
+            </div>
+          </div>
+          <Link to="/contact" className='border-t-2 border-zinc-950 group w-full '>
+            <div className='p-5 flex justify-between items-center font-bold'>
+              <div className='flex justify-baseline items-baseline gap-1 group-hover:animate-bounce'>
+                <span className='text-gray-600'>Starts</span>
+                <span className='font-black text-[20px]'>$299</span>
+                <span className='text-gray-600'>for 1 month</span>
+              </div>
+              <div className='relative font-black'>
+                <MoveRight size={28} className='' />
+                <MoveRight size={28} className='absolute top-0 group-hover:animate-ping' />
+              </div>
+            </div>
+          </Link>
         </motion.div>
       </div>
     </section>
