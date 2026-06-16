@@ -102,7 +102,7 @@ const HeroSection = () => {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        className="absolute inset-0 w-full h-full bg-cover bg-center "
+                        className="absolute inset-0 w-full h-full  bg-center "
                         src={currentSlideData.bgImage}
                         alt="Hero Banner"
                     />
