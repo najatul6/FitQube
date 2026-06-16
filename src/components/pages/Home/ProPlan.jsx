@@ -34,7 +34,7 @@ const ProPlan = () => {
       whileInView="show">
       <motion.h2
         variants={itemVariants}
-        className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-10"
+        className="text-3xl md:text-4xl uppercase tracking-wide mb-10 font-display"
       >
         Our Pro Plan
       </motion.h2>
@@ -56,10 +56,10 @@ const ProPlan = () => {
             <motion.h2 variants={itemVariants} className="text-2xl font-bold capitalize text-zinc-950 px-5 py-2">
               Unlock exclusive benefits.
             </motion.h2>
-            <div className='px-5 text-lg'>
-              <motion.p variants={itemVariants} className=''>Our coaching plans will help you reach your fitness goals faster!</motion.p>
+            <div className='px-5'>
+              <motion.p variants={itemVariants} className=' text-base text-zinc-950 leading-relaxed'>Our coaching plans will help you reach your fitness goals faster!</motion.p>
               <motion.div variants={containerVariants}>
-                <ul className="list-disc pl-5 space-y-2">
+                <ul className="list-disc pl-5 space-y-2 text-base text-zinc-950 leading-relaxed">
                   <motion.li variants={itemVariants}>Personalised Workout Plans with video demonstrations</motion.li>
                   <motion.li variants={itemVariants}>Personalised Meal Plans according to your goals (Veg, Non-veg, Eggetarian, Gluten Free, Lactose Free & Gluten+Lactose Free Diets available)</motion.li>
                   <motion.li variants={itemVariants}>More than 10000 Food Options to choose and 100s of Easy to make Recipes</motion.li>
