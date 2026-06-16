@@ -1,30 +1,34 @@
-import img from "@/assets/Animation/NotFound.json"
+// import img from "@/assets/Animation/NotFound.json"
 import { Button } from "@/components/ui/button";
-import Lottie from "lottie-react";
+// import Lottie from "lottie-react";
 import { Link, useRouteError } from "react-router-dom";
+import './ErrorPageStyle.css'
 
 const ErrorPage = () => {
-    const error = useRouteError();
-    console.log(error.data);
+    // const error = useRouteError();
+    // console.log(error.data);
     return (
         <div className="flex flex-col gap-6 justify-center items-center h-screen">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold text-gray-700">
-                    {error?.status || "404"}
-                </h1>
-                <h2 className="text-2xl font-bold text-gray-700">
-                    {error?.statusText || " Opps! Page notFound"}
-                </h2>
+           <div class="contain">
+                <div class="main">
+                    <span class="e">E</span>
+                    <span class="r">R</span>
+                    <span class="r1">R</span>
+                    <span class="o">O</span>
+                    <span class="r2">R</span>
+                </div>
+                <div class="four">
+                    <span class="first">4</span>
+                    <span class="second">0</span>
+                    <span class="third">4</span>
+                </div>
             </div>
-            <div className="flex justify-center items-center w-[350px] mx-auto">
-                <Lottie animationData={img} />
-            </div>
-            <p className="text-center">{error.data}</p>
 
             <Link to="/">
-                <Button>Back to Home</Button>
+                <Button className="cursor-pointer">Back to Home</Button>
             </Link>
         </div>
+        
     );
 };
 
