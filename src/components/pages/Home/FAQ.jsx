@@ -32,7 +32,7 @@ export default function FAQ() {
     variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2 }}
+      viewport={{ amount: 0.1 }}
       >
       <div className="w-full mx-auto text-center mb-12">
         <motion.h2 variants={itemVariants} className="text-zinc-900 text-3xl font-bold md:text-4xl">
