@@ -72,12 +72,18 @@ const solutions = [
 
 const FitnessSolution = () => {
   return (
-    <section className="py-20 bg-zinc-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="md:mt-20">
+      {/* <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+        className="text-3xl md:text-4xl uppercase tracking-tighter mb-10 font-display"
+      >
+        Complete Personalised Fitness Solution
+      </motion.h2> */}
+      <div className="w-full mx-auto ">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
+          
         >
           {/* Heading */}
           <motion.div
