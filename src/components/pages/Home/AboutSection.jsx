@@ -83,7 +83,7 @@ Click  “Download Now” to get started with FITQUBE. Your fitness journey awai
             Who We Are
           </motion.span>
 
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-display tracking-wide uppercase leading-none">
             Welcome to FITQUBE
           </motion.h2>
 
