@@ -53,7 +53,7 @@ const SuccessStories = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl font-black uppercase tracking-tighter"
+            className="text-3xl md:text-4xl font-display uppercase tracking-wide"
           >
             Our Success Stories
           </motion.h2>
@@ -95,10 +95,7 @@ const SuccessStories = () => {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
           }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
+          navigation={{ prevEl: prevRef.current, nextEl: nextRef.current, }}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -116,7 +113,7 @@ const SuccessStories = () => {
               <motion.img
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5 }}
                 src={item.image}
                 className="w-full h-[300px] object-cover"
               />
