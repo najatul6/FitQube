@@ -6,49 +6,69 @@ import { Link } from 'react-router-dom';
 // Pending work for button to choose payment 
 
 const ProPlan = () => {
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <section>
+    <section variants={containerVariants}
+      initial="hidden"
+      whileInView="show">
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={itemVariants}
         className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-10"
       >
         Our Pro Plan
       </motion.h2>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 rounded-md shadow-xl border'>
+      <div className='grid grid-cols-1 md:grid-cols-2 rounded-md shadow-xl border overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1'>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          variants={itemVariants}
           className='flex justify-center items-center'
         >
           <img src={logo} alt="Pro Plan Logo" className=' md:w-2/3 h-[250px] md:h-auto' />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
           className='border-t-2 md:border-t-0 md:border-l-2 border-zinc-950 flex flex-col justify-between'
         >
           <div className='flex flex-col justify-center items-start gap-4'>
-            <motion.h2 className="text-2xl font-bold capitalize text-zinc-950 px-5 py-2">
+            <motion.h2 variants={itemVariants} className="text-2xl font-bold capitalize text-zinc-950 px-5 py-2">
               Unlock exclusive benefits.
             </motion.h2>
             <div className='px-5 text-lg'>
-              <p className=''>Our coaching plans will help you reach your fitness goals faster!</p>
-              <div>
-                <ul className='list-disc'>
-                  <li>Personalised Workout Plans with video demonstrations</li>
-                  <li>Personalised Meal Plans according to your goals (Veg, Non-veg, Eggetarian, Gluten Free, Lactose Free & Gluten+Lactose Free Diets available)</li>
-                  <li>More than 10000 Food Options to choose and 100s of Easy to make Recipes</li>
+              <motion.p variants={itemVariants} className=''>Our coaching plans will help you reach your fitness goals faster!</motion.p>
+              <motion.div variants={containerVariants}>
+                <ul className="list-disc pl-5 space-y-2">
+                  <motion.li variants={itemVariants}>Personalised Workout Plans with video demonstrations</motion.li>
+                  <motion.li variants={itemVariants}>Personalised Meal Plans according to your goals (Veg, Non-veg, Eggetarian, Gluten Free, Lactose Free & Gluten+Lactose Free Diets available)</motion.li>
+                  <motion.li variants={itemVariants}>More than 10000 Food Options to choose and 100s of Easy to make Recipes</motion.li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
           <Link to="/contact" className='border-t-2 border-zinc-950 group w-full '>
-            <div className='p-5 flex justify-between items-center font-bold'>
+            <motion.div variants={itemVariants} className='p-5 flex justify-between items-center font-bold'>
               <div className='flex justify-baseline items-baseline gap-1 group-hover:animate-bounce'>
                 <span className='text-gray-600'>Starts</span>
                 <span className='font-black text-[20px]'>$299</span>
@@ -58,7 +78,7 @@ const ProPlan = () => {
                 <MoveRight size={28} className='' />
                 <MoveRight size={28} className='absolute top-0 group-hover:animate-ping' />
               </div>
-            </div>
+            </motion.div>
           </Link>
         </motion.div>
       </div>
