@@ -9,9 +9,6 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            {/* <h2 className="text-3xl font-black tracking-tight">
-              GYM<span className="text-black/50">.</span>
-            </h2> */}
             {/* Logo  */}
             <img src={Logo} alt="FitQube Logo" className="w-32 h-auto mt-4" />
             <p className="mt-4 text-black/60 leading-relaxed">
