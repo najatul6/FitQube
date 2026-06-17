@@ -83,7 +83,6 @@ const SuccessStories = () => {
         <Swiper
 
           modules={[Navigation, Autoplay]}
-          slidesPerView={3}
           spaceBetween={30}
           loop={true}
           autoplay={{
