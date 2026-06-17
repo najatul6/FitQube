@@ -27,8 +27,8 @@ const StyledWrapper = styled.div`
     width: 40px;
     height: 40px;
     transform: rotate(45deg) translate(30%, 40%);
-    background: #ff9371;
-    box-shadow: 32px -34px 0 5px #ff3d00;
+    background: #828282;
+    box-shadow: 32px -34px 0 5px #000000;
     animation: slide 2s infinite ease-in-out alternate;
   }
 
@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #ff3d00;
+    background: #000000;
     transform: rotate(0deg);
     transform-origin: 35px 145px;
     animation: rotate 2s infinite ease-in-out;
