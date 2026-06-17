@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Dumbbell, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import CoachImg from "@/assets/sliderImages/2.webp";
 
 const containerVariants = {
   hidden: {},
@@ -43,7 +44,7 @@ const AboutCoach = () => {
             <div className="absolute inset-0 bg-zinc-100 rounded-3xl rotate-6"></div>
 
             <img
-              src="https://images.unsplash.com/photo-1567013127542-490d757e51fc"
+              src={CoachImg}
               alt="Coach"
               className="relative z-10 rounded-3xl shadow-2xl w-full max-w-md object-cover"
             />
