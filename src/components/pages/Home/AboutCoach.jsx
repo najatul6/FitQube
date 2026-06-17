@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Dumbbell, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import CoachImg from "@/assets/sliderImages/2.webp";
+import CoachImg from "@/assets/sliderImages/x.jpg";
 
 const containerVariants = {
   hidden: {},
