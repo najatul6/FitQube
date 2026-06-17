@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
 import { ImageCard } from "@/components/shared/ImageCard";
 import ContentWrapper from "@/context/ContentWrapper";
+import img1 from "@/assets/sliderImages/1.webp"
+import img2 from "@/assets/sliderImages/2.webp"
+import img3 from "@/assets/sliderImages/3.webp"
+import img4 from "@/assets/sliderImages/4.webp"
+import img5 from "@/assets/sliderImages/5.webp"
+import img6 from "@/assets/sliderImages/6.jpg"
 
 const images = [
-  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
-  "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
-  "https://images.unsplash.com/photo-1550345332-09e3ac987658",
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
-  "https://images.unsplash.com/photo-1599058917212-d750089bc07e",
-  "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61",
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6
 ];
 
 const Gallery = () => {
