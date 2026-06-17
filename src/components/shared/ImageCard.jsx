@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ImageLoader from "./ImageLoader";
 
+
 export const ImageCard = ({ img }) => {
   const [loaded, setLoaded] = useState(false);
 
