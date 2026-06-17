@@ -38,6 +38,13 @@ const plans = [
 ];
 
 const CoachingPlans = () => {
+  const handleChoosePlan = (plan) => {
+    const message = `Hello! I am interested in your ${plan.name} (${plan.price}). Please guide me.`;
+
+    window.open(
+      `https://wa.me/+8801581205392?text=${encodeURIComponent(message)}`
+    );
+  };
   return (
     <ContentWrapper>
       <div className="w-full mx-auto pt-5 px-6 lg:px-0 text-center">
@@ -85,7 +92,7 @@ const CoachingPlans = () => {
               </ul>
 
               {/* Button */}
-              <button className="mt-8 w-full border border-black rounded-full py-3 font-semibold hover:bg-black hover:text-white transition-all duration-300">
+              <button onClick={() => handleChoosePlan(plan)} className="mt-8 cursor-pointer w-full border border-black rounded-full py-3 font-semibold hover:bg-black hover:text-white transition-all duration-300">
                 Choose Plan
               </button>
             </motion.div>
