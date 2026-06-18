@@ -73,9 +73,9 @@ const Trainers = () => {
                 <p className="mt-2 text-sm text-black/50">{t.exp}</p>
 
                 {/* Button */}
-                <button className="mt-6 w-full border border-black rounded-full py-2 font-semibold hover:bg-black hover:text-white transition-all duration-300">
+                {/* <button className="mt-6 w-full border border-black rounded-full py-2 font-semibold hover:bg-black hover:text-white transition-all duration-300">
                   View Profile
-                </button>
+                </button> */}
               </div>
             </motion.div>
           ))}
